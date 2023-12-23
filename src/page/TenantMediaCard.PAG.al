@@ -73,6 +73,7 @@ page 50001 "Tenant Media Card"
                     ToolTip = 'Specifies the value of the SystemModifiedBy field.';
                 }
             }
+
             group(Comment)
             {
                 Caption = 'Comments';
