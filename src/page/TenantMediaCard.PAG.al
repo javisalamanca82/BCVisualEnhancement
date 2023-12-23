@@ -73,9 +73,36 @@ page 50001 "Tenant Media Card"
                     ToolTip = 'Specifies the value of the SystemModifiedBy field.';
                 }
             }
+            group(Comment)
+            {
+                Caption = 'Comments';
+                field(Comment1; RichText)
+                {
+                    Caption = 'Comment';
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies a description for the shown picture.';
+                    MultiLine = true;
+                    ExtendedDatatype = RichContent;
+
+                    trigger OnValidate()
+                    begin
+                        TenantMediaTools.SetComment(Rec.ID, RichText);
+                    end;
+                }
+            }
         }
     }
 
+    trigger OnAfterGetRecord()
+    var
+        TenantMediaComment: Record "Tenant Media Comment";
+    begin
+        Clear(RichText);
+        if TenantMediaComment.Get(Rec.ID) then
+            RichText := TenantMediaComment.Comment;
+    end;
+
     var
         TenantMediaTools: Codeunit "Tenant Media Tools";
+        RichText: Text;
 }
