@@ -40,6 +40,7 @@ page 50000 "Tenant Media List"
         {
             part(Content2; "Tenant Media Factbox")
             {
+                ApplicationArea = All;
                 SubPageLink = ID = field(ID);
             }
         }
