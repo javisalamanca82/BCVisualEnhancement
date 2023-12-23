@@ -6,6 +6,7 @@ page 50002 "Tenant Media Factbox"
     Caption = 'Tenant Media Factbox';
     PageType = CardPart;
     SourceTable = "Tenant Media";
+    ApplicationArea = All;
 
     layout
     {
